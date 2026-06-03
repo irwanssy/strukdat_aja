@@ -38,8 +38,8 @@ Sistem ini mensimulasikan:
 
 ## 🛠️ Tech Stack
 
-- Python 🐍
-- Streamlit ⚡
+- Python 
+- Streamlit 
 - HTML (custom components)
 - CSS (custom styling)
 - Data Structure (Queue)
@@ -77,3 +77,20 @@ pip install streamlit
 ```
 streamlit run app.py
 ```
+
+## 📜 Commit History
+- c91211d iniii baruh
+- a2afeaf makan
+- 3c8d776 iniii baruh
+- 4135df7 makan
+- 25a6d02 makan
+- 8b5bd61 ini strukdat
+- 4212ebb ini strukdatdat
+- ab8dc1c Add files via upload
+- 49a6a2e Initial commit
+
+## 👨‍💻 Team
+- Irwansyah
+- Shafira
+- Ismail
+- Rizqi
