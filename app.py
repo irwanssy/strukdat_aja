@@ -2,15 +2,20 @@ import streamlit as st
 import time
 from logic import MultiQueueTol
 
+def load_css():
+    with open("style.css", "r", encoding="utf-8") as f:
+        st.markdown(
+            f"<style>{f.read()}</style>",
+            unsafe_allow_html=True
+        )
+
 st.set_page_config(
     page_title="Sistem Antrian Tol",
     page_icon="🚗",
     layout="wide",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="collapsed"
 )
-
-st.markdown("""
-""", unsafe_allow_html=True)
+load_css()
 
 # ─── SESSION STATE ───────────────────────────────────────────────────────────
 if "tol" not in st.session_state:
@@ -29,8 +34,7 @@ def add_log(msg: str, kind: str = "info"):
     if len(st.session_state.log) > 30:
         st.session_state.log.pop()
 
-
-# ─── HEADER ─────────────────────────────────────────────────────────────────
+# HEADER
 st.markdown('<div class="hero-title">🛣️ Sim<span class="hero-accent">Tol</span> — Sistem Antrian Tol</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-sub">Multi-Queue Toll Simulation · Struktur Data</div>', unsafe_allow_html=True)
 
