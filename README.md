@@ -64,7 +64,7 @@ Sistem ini mensimulasikan:
 ## 📂 Project Structure
 
 ```bash
-SimTol/
+Strukdat_aja/
 │
 ├── app.py
 ├── logic.py
