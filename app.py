@@ -37,7 +37,7 @@ def add_log(msg: str, kind: str = "info"):
 # HEADER
 st.markdown('<div class="hero-title">🛣️ Sim<span class="hero-accent">Tol</span> — Sistem Antrian Tol</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-sub">Multi-Queue Toll Simulation · Struktur Data</div>', unsafe_allow_html=True)
-st.markdown('<div class="hero-subsub">by Irwansyah, Shafira, Ismail, Rizqi</div>', unsafe_allow_html=True)
+st.markdown('<div class="subhead"><div></div><div class="hero-subsub">by Irwansyah, Shafira, Ismail, Rizqi</div></div>', unsafe_allow_html=True)
 
 # ─── STAT CARDS ─────────────────────────────────────────────────────────────
 antrian = st.session_state.tol.lihat_antrian()
@@ -117,7 +117,16 @@ with c3:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
+
 # ─── KONTROL ────────────────────────────────────────────────────────────────
+search_plat = st.text_input("Masukkan plat untuk dicari")
+if st.button("Search"):
+    hasil = st.session_state.tol.search_all(search_plat.strip().upper())
+    if hasil:
+        st.success(f"Ditemukan di: {hasil}")
+    else:
+        st.error("Kendaraan tidak ditemukan")
+        
 col_in, col_out = st.columns([1, 1], gap="large")
 
 with col_in:
@@ -130,10 +139,11 @@ with col_in:
                 plat_bersih = plat.strip().upper()
                 gate = st.session_state.tol.masuk_tol(plat_bersih)
                 st.session_state.total_masuk += 1
-                add_log(f"{plat_bersih} masuk ke Gerbang {gate}","success")
+                add_log(f"{plat_bersih} masuk ke Gerbbang {gate}","success")
                 st.rerun()
             else:
                 st.warning("Masukkan nomor plat terlebih dahulu.")
+            
 
 with col_out:
     st.markdown('<div class="section-label">✅ Kendaraan Keluar</div>', unsafe_allow_html=True)
@@ -148,6 +158,7 @@ with col_out:
             else:
                 add_log(f"Gate {gate}: antrian kosong!", "info")
                 st.rerun()
+
 
 # ─── LOG AKTIVITAS ───────────────────────────────────────────────────────────
 st.markdown("<br>", unsafe_allow_html=True)

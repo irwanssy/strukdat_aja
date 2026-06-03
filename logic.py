@@ -1,22 +1,53 @@
+class Node:
+    def __init__(self, data):
+        self.data = data   
+        self.next = None  
 class Queue:
-
     def __init__(self):
-        self.data = []
+        self.front = None
+        self.rear = None
+        self._size = 0
 
     def enqueue(self, kendaraan):
-        self.data.append(kendaraan)
+        new_node = Node(kendaraan)
+        if self.rear is None:
+            self.front = self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+        self._size += 1
 
     def dequeue(self):
-        if len(self.data) > 0:
-            return self.data.pop(0)
-        return None
+        if self.front is None:
+            return None
+        temp = self.front
+        self.front = self.front.next
+        if self.front is None:
+            self.rear = None
+        self._size -= 1
+        return temp.data
 
     def size(self):
-        return len(self.data)
+        return self._size
+
+    def search(self, kendaraan):
+        current = self.front
+        posisi = 1
+
+        while current:
+            if current.data == kendaraan:
+                return posisi
+            current = current.next
+            posisi += 1
+        return -1
 
     def display(self):
-        return self.data
-
+        result = []
+        current = self.front
+        while current:
+            result.append(current.data)
+            current = current.next
+        return result
 
 class MultiQueueTol:
 
@@ -44,6 +75,21 @@ class MultiQueueTol:
             return self.tol2.dequeue()
         elif nomor_tol == 3:
             return self.tol3.dequeue()
+
+    def search_all(self, kendaraan):
+        hasil = {}
+        pos = self.tol1.search(kendaraan)
+        if pos != -1:
+            hasil["Gate 1"] = pos
+
+        pos = self.tol2.search(kendaraan)
+        if pos != -1:
+            hasil["Gate 2"] = pos
+            
+        pos = self.tol3.search(kendaraan)
+        if pos != -1:
+            hasil["Gate 3"] = pos
+        return hasil if hasil else None
 
     def lihat_antrian(self):
         return {
