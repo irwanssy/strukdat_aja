@@ -74,8 +74,8 @@ SimTol/
 ## 🚀 How to Run
 1. Clone repository
 git clone https://github.com/irwanssy/strukdat_aja.git
-cd strukdat_aja
-2. Install dependencies
+2. cd strukdat_aja
+3. Install dependencies
 ```
 pip install streamlit
 ```
