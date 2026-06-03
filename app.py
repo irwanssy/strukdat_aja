@@ -132,7 +132,7 @@ with col_in:
                 plat_bersih = plat.strip().upper()
                 gate = st.session_state.tol.masuk_tol(plat_bersih)
                 st.session_state.total_masuk += 1
-                add_log(f"{plat_bersih} masuk ke Gerbbang {gate}","success")
+                add_log(f"{plat_bersih} masuk ke Gerbang {gate}","success")
                 st.rerun()
             else:
                 st.warning("Masukkan nomor plat terlebih dahulu.")
