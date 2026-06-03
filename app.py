@@ -119,14 +119,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 
 # ─── KONTROL ────────────────────────────────────────────────────────────────
-search_plat = st.text_input("Masukkan plat untuk dicari")
-if st.button("Search"):
-    hasil = st.session_state.tol.search_all(search_plat.strip().upper())
-    if hasil:
-        st.success(f"Ditemukan di: {hasil}")
-    else:
-        st.error("Kendaraan tidak ditemukan")
-        
+
 col_in, col_out = st.columns([1, 1], gap="large")
 
 with col_in:

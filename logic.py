@@ -30,16 +30,6 @@ class Queue:
     def size(self):
         return self._size
 
-    def search(self, kendaraan):
-        current = self.front
-        posisi = 1
-
-        while current:
-            if current.data == kendaraan:
-                return posisi
-            current = current.next
-            posisi += 1
-        return -1
 
     def display(self):
         result = []
@@ -76,20 +66,6 @@ class MultiQueueTol:
         elif nomor_tol == 3:
             return self.tol3.dequeue()
 
-    def search_all(self, kendaraan):
-        hasil = {}
-        pos = self.tol1.search(kendaraan)
-        if pos != -1:
-            hasil["Gate 1"] = pos
-
-        pos = self.tol2.search(kendaraan)
-        if pos != -1:
-            hasil["Gate 2"] = pos
-            
-        pos = self.tol3.search(kendaraan)
-        if pos != -1:
-            hasil["Gate 3"] = pos
-        return hasil if hasil else None
 
     def lihat_antrian(self):
         return {
