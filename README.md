@@ -24,10 +24,10 @@ Sistem ini mensimulasikan:
 
 ---
 ## Latar Belakang
-=> Antrian di gerbang tol sering terjadi di dunia nyata.
-=> Dibutuhkan sistem pembagian jalur yang efisien.
-=> Struktur data Queue dapat digunakan untuk simulasi antrian.
-=> Multi Queue membantu mengurangi penumpukan kendaraan.
+- Antrian di gerbang tol sering terjadi di dunia nyata. 
+- Dibutuhkan sistem pembagian jalur yang efisien.
+- Struktur data Queue dapat digunakan untuk simulasi antrian.
+- Multi Queue membantu mengurangi penumpukan kendaraan.
 
 ---
 ## ✨ Features
