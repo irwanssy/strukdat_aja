@@ -26,6 +26,18 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
+.hero-subsub {
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    font-size: 0.70rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    font-weight: 100;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .stat-card {
     background: #ffffff;
     border-radius: 16px;
@@ -208,6 +220,16 @@ div[data-testid="stForm"] {
 }
 .stFormSubmitButton > button:hover {
     background: #1d4ed8 !important;
+}
+
+[data-testid="stAlert"] {
+    color: #92400e !important;
+    background-color: #fefce8 !important;
+    border: 1px solid #facc15 !important;
+}
+
+[data-testid="stAlert"] * {
+    color: #92400e !important;
 }
 
 ::-webkit-scrollbar { width: 4px; }

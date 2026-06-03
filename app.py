@@ -37,6 +37,7 @@ def add_log(msg: str, kind: str = "info"):
 # HEADER
 st.markdown('<div class="hero-title">🛣️ Sim<span class="hero-accent">Tol</span> — Sistem Antrian Tol</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-sub">Multi-Queue Toll Simulation · Struktur Data</div>', unsafe_allow_html=True)
+st.markdown('<div class="hero-subsub">by Irwansyah, Shafira, Ismail, Rizqi</div>', unsafe_allow_html=True)
 
 # ─── STAT CARDS ─────────────────────────────────────────────────────────────
 antrian = st.session_state.tol.lihat_antrian()
@@ -126,9 +127,10 @@ with col_in:
         submitted = st.form_submit_button("➕ Masukkan ke Antrian Terpendek")
         if submitted:
             if plat.strip():
-                result = st.session_state.tol.masuk_tol(plat.strip().upper())
+                plat_bersih = plat.strip().upper()
+                gate = st.session_state.tol.masuk_tol(plat_bersih)
                 st.session_state.total_masuk += 1
-                add_log(result, "success")
+                add_log(f"{plat_bersih} masuk ke Gerbang {gate}","success")
                 st.rerun()
             else:
                 st.warning("Masukkan nomor plat terlebih dahulu.")
@@ -140,12 +142,12 @@ with col_out:
         keluar_btn = st.form_submit_button("⬅️ Proses Kendaraan Keluar")
         if keluar_btn:
             result = st.session_state.tol.keluar_tol(gate)
-            if result != "Antrian kosong":
+            if result is not None:
                 st.session_state.total_keluar += 1
                 add_log(f"{result} → keluar dari Gate {gate}", "warning")
             else:
                 add_log(f"Gate {gate}: antrian kosong!", "info")
-            st.rerun()
+                st.rerun()
 
 # ─── LOG AKTIVITAS ───────────────────────────────────────────────────────────
 st.markdown("<br>", unsafe_allow_html=True)

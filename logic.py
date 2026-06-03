@@ -9,6 +9,7 @@ class Queue:
     def dequeue(self):
         if len(self.data) > 0:
             return self.data.pop(0)
+        return None
 
     def size(self):
         return len(self.data)
@@ -28,10 +29,13 @@ class MultiQueueTol:
     def masuk_tol(self, kendaraan):
         if self.tol1.size() <= self.tol2.size() and self.tol1.size() <= self.tol3.size():
             self.tol1.enqueue(kendaraan)
+            return 1
         elif self.tol2.size() <= self.tol1.size() and self.tol2.size() <= self.tol3.size():
             self.tol2.enqueue(kendaraan)
+            return 2
         else:
             self.tol3.enqueue(kendaraan)
+            return 3
 
     def keluar_tol(self, nomor_tol):
         if nomor_tol == 1:
