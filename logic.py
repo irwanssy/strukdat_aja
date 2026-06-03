@@ -51,5 +51,5 @@ class MultiQueueTol:
             "Tol 2": self.tol2.display(),
             "Tol 3": self.tol3.display()
         }
-    
+
 tol1 = MultiQueueTol()
